@@ -1,0 +1,17 @@
+---
+version: '3.5'
+
+services:
+
+  eks-bootstrap:
+    image: eks-test:latest
+    tty: true
+    build:
+      context: .
+      args:
+        - AWS_REGION=eu-central-1
+        - AWS_ACCESS_KEY_ID=
+        - AWS_SECRET_ACCESS_KEY=
+    working_dir: /usr/src/tmp
+    volumes:
+      - ./tmp:/usr/src/tmp
